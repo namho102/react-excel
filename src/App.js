@@ -18,9 +18,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">Hello world</p>
-            <Counter value={store.getState()} onIncrement={() => store.dispatch(increment(6))}></Counter>
-        <div>
 
+        <div>
+          <Counter value={store.getState()} onIncrement={() => store.dispatch(increment(6))}></Counter>
         </div>
       </div>
     );

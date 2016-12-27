@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,7 +11,6 @@ import { increment } from './actions/actions'
 class App extends Component {
 
   render() {
-    const store = this.props.store
     return (
       <div className="App">
         <div className="App-header">
@@ -20,7 +20,7 @@ class App extends Component {
         <p className="App-intro">Hello world</p>
 
         <div>
-          <Counter value={store.getState()} onIncrement={() => store.dispatch(increment(6))}></Counter>
+            <Counter value={this.props.value} onIncrement={this.props.onIncrement.bind(this, 10)}></Counter>
         </div>
       </div>
     );
@@ -28,4 +28,19 @@ class App extends Component {
 
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    value: state
+  }
+}
+
+
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    onIncrement: (value) => dispatch(increment(value))
+  }
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

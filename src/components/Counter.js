@@ -10,11 +10,15 @@ class Counter extends Component {
       <p>
         Value: {value}
       </p>
-      <button onClick={ onIncrement }>Plus</button>
+      <button onClick={ onIncrement } >Plus</button>
       </div>
 
     )
   }
 }
+
+
+
+
 
 export default Counter

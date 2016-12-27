@@ -4,12 +4,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import Counter from './components/Counter'
-
 import { increment } from './actions/actions'
 
 
 class App extends Component {
-
   render() {
     return (
       <div className="App">
@@ -28,14 +26,11 @@ class App extends Component {
 
 }
 
-
 const mapStateToProps = (state) => {
   return {
     value: state
   }
 }
-
-
 
 const mapDispatchToProps = (dispatch) => (
   {

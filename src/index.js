@@ -4,16 +4,11 @@ import { Provider } from 'react-redux'
 import App from './App';
 import './index.css';
 
-import { createStore } from 'redux'
-import counter from './reducers/index'
-let store = createStore(counter)
-
 const render = () => ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+
+    <App />,
+
   document.getElementById('root')
 )
 
 render()
-store.subscribe(render)

@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import AddCard from './components/AddCard'
+import CardList from './components/CardList'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <h2>React Trello-like app</h2>
         </div>
         <div className="App-body">
+          <CardList cards={[{ name: 'hello'}, { name: 'bonjour'}]}/>
           <AddCard />
         </div>
       </div>

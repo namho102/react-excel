@@ -6,7 +6,6 @@ import './App.css';
 import Counter from './components/Counter'
 import { increment } from './actions/actions'
 
-
 class App extends Component {
   render() {
     return (

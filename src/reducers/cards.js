@@ -1,9 +1,9 @@
 const card = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_CARD':
-      return: {
+      return {
         cardId: action.cardId,
-        name: action: name
+        name: action.name
       }
       break;
     default:
@@ -11,15 +11,17 @@ const card = (state = {}, action) => {
   }
 }
 
-consts cards = (state = [], action) => {
+const cards = (state = [], action) => {
     switch (action.type) {
       case 'ADD_CARD':
         return [
           ...state,
-          card(underfined, action)
+          card(undefined, action)
         ]
         break;
       default:
         return state
     }
 }
+
+export default cards

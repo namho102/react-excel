@@ -14,8 +14,8 @@ class App extends Component {
           <h2>React Trello-like app</h2>
         </div>
         <div className="App-body">
-          <CardList cards={[{ name: 'hello'}, { name: 'bonjour'}]}/>
           <AddCard />
+          <CardList />
         </div>
       </div>
     );

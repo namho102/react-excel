@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const CardList = ({cards}) => {
   return (
-    <div>
+    <div className="CardList">
       {cards.map(card =>
         <Card key={card.cardId} name={card.name} />
       )}

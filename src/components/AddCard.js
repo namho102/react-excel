@@ -16,7 +16,7 @@ let AddCard = ({ dispatch }) => {
         dispatch(addCard(input.value))
         input.value = ''
       }}>
-        <input ref={node => {
+        <input placeholder="Card's Name" ref={node => {
           input = node
         }} />
         <button type="submit">

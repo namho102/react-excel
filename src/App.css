@@ -3,7 +3,7 @@
   padding: 0;
 }
 .App {
-
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .App-logo {
@@ -29,8 +29,45 @@
 }
 
 .App-body {
-  margin-top: 20px;
+  /*background-color: #C9C23E;*/
+  height: 100vh;
+  padding-top: 20px;
   text-align: center;
+}
+
+input {
+  font-family: 'Nunito Sans', sans-serif;
+  height: 25px;
+  padding-left: 10px;
+}
+
+
+button {
+  background-color: #56D65D;
+  border: none;
+  color: #fff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+  outline: none;
+  padding: 5px 10px;
+
+}
+button:active {
+  background-color: #89EE8F;
+}
+
+.CardList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Card {
+  background-color: #D7EA29;
+  height: 200px;
+  margin: 20px;
+  min-width: 20%;
+
 }
 
 @keyframes App-logo-spin {

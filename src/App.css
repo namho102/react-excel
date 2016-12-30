@@ -65,9 +65,13 @@ button:active {
 .Card {
   background-color: #D7EA29;
   height: 200px;
-  margin: 20px;
+  margin: 2.5%;
   min-width: 20%;
+}
 
+.Card h2 {
+  font-size: 18px;
+  margin: 10px;
 }
 
 @keyframes App-logo-spin {

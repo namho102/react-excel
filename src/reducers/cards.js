@@ -5,7 +5,6 @@ const card = (state = {}, action) => {
         cardId: action.cardId,
         name: action.name
       }
-      break;
     default:
       return state
   }
@@ -18,7 +17,6 @@ const cards = (state = [], action) => {
           ...state,
           card(undefined, action)
         ]
-        break;
       default:
         return state
     }

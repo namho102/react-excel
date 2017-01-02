@@ -2,20 +2,21 @@ import React from 'react'
 import Task from './Task'
 import { connect } from 'react-redux'
 
-const TaskList = ({tasks}) => {
-
+const TaskList = ({tasks, ownProps}) => {
+  const thisCardId = ownProps.cardId
   return (
     <div className="TaskList">
-      {tasks.map(task =>
+      {tasks.filter((item) => (item.cardId === thisCardId)).map(task =>
         <Task key={task.taskId} text={task.text} />
       )}
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    tasks: state.tasks
+    tasks: state.tasks,
+    ownProps
   }
 }
 

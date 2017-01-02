@@ -9,10 +9,12 @@ export const addCard = (name) => (
   }
 )
 
-export const addTask = (text) => {
+export const addTask = (text, cardId) => {
+  // console.log(text, cardId);
   return {
     type: 'ADD_TASK',
-    taskId: nextTaskId++,
-    text
+    cardId,
+    text,
+    taskId: nextTaskId++
   }
 }

@@ -2,17 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTask } from '../actions'
 
-let AddTask = ({ dispatch }) => {
+let AddTask = ({ dispatch, ownProps }) => {
   let input
+  const cardId = ownProps.cardId
 
   return (
-    <div>
+    <div className="task-button">
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTask(input.value))
+        dispatch(addTask(input.value, cardId))
         input.value = ''
       }}>
         <input placeholder="Add a task" ref={node => {
@@ -26,6 +27,14 @@ let AddTask = ({ dispatch }) => {
   )
 }
 
-AddTask = connect()(AddTask)
+const mapStateToProps = (state, ownProps) => {
+  return {
+    dispatch: state.dispatch,
+    ownProps: ownProps
+  }
+}
+
+
+AddTask = connect(mapStateToProps)(AddTask)
 
 export default AddTask

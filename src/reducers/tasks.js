@@ -2,7 +2,8 @@ const card = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_TASK':
       return {
-        taskId: action.taskId,
+        taskId: action.taskId++,
+        cardId: action.cardId,
         text: action.text
       }
     default:

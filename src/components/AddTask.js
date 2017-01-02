@@ -1,32 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addCard } from '../actions'
+import { addTask } from '../actions'
 
-
-let AddCard = ({ dispatch }) => {
+let AddTask = ({ dispatch }) => {
   let input
 
   return (
-    <div className="Card-button">
+    <div>
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
           return
         }
-        dispatch(addCard(input.value))
+        dispatch(addTask(input.value))
         input.value = ''
       }}>
-        <input placeholder="Add a card" ref={node => {
+        <input placeholder="Add a task" ref={node => {
           input = node
         }} />
         <button type="submit">
-          Save
+          Add
         </button>
       </form>
     </div>
   )
 }
 
-AddCard = connect()(AddCard)
+AddTask = connect()(AddTask)
 
-export default AddCard
+export default AddTask

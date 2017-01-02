@@ -1,4 +1,5 @@
 let nextCardId = 0
+let nextTaskId = 0
 
 export const addCard = (name) => (
   {
@@ -7,3 +8,11 @@ export const addCard = (name) => (
     name
   }
 )
+
+export const addTask = (text) => {
+  return {
+    type: 'ADD_TASK',
+    taskId: nextTaskId++,
+    text
+  }
+}

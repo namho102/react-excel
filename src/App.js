@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo"></img>
+          <img src={logo}  role="presentation" className="App-logo"></img>
           <h2>React Trello-like app</h2>
         </div>
         <div className="App-body">

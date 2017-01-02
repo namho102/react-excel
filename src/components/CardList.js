@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Card from './Card'
 import { connect } from 'react-redux'
 
 const CardList = ({cards}) => {
+
   return (
     <div className="CardList">
       {cards.map(card =>
@@ -14,7 +15,7 @@ const CardList = ({cards}) => {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state
+    cards: state.cards
   }
 }
 

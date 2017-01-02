@@ -5,9 +5,9 @@ import { createStore } from 'redux'
 import App from './App';
 import './index.css';
 
-import cards from './reducers/cards'
+import trello from './reducers'
 
-let store = createStore(cards)
+let store = createStore(trello)
 
 const render = () => ReactDOM.render(
   <Provider store={store}>

@@ -2,9 +2,29 @@ import React from 'react'
 import Task from './Task'
 import { connect } from 'react-redux'
 
+import { DropTarget } from 'react-dnd';
+
+const squareTarget = {
+  drop(props) {
+    console.log(props);
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
+
 const TaskList = ({tasks, ownProps}) => {
   const thisCardId = ownProps.cardId
-  return (
+
+  console.log(ownProps);
+  const { connectDropTarget, isOver } = ownProps;
+  console.log(connectDropTarget);
+
+  return connectDropTarget(
     <div className="TaskList">
       {tasks.filter((item) => (item.cardId === thisCardId)).map(task =>
         <Task key={task.taskId} text={task.text} />
@@ -21,4 +41,4 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 
-export default connect(mapStateToProps)(TaskList)
+export default DropTarget('TASK', squareTarget, collect)(connect(mapStateToProps)(TaskList))

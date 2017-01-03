@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 import { DropTarget } from 'react-dnd';
 
 const squareTarget = {
-  canDrop(props) {
-    console.log('can drop');
-    console.log(props);
-  },
+  // canDrop(props) {
+  //   console.log('can drop');
+  //   console.log(props);
+  // },
 
-  drop(props) {
+  drop(props, monitor) {
     console.log('drop');
     console.log(props);
   }
@@ -20,7 +20,7 @@ function collect(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver(),
-     canDrop: monitor.canDrop()
+    canDrop: monitor.canDrop()
   };
 }
 
@@ -44,8 +44,18 @@ class TaskList extends React.Component {
 
     const { cardId, tasks, connectDropTarget, canDrop, isOver } = this.props;
 
+    const isActive = isOver && canDrop;
+
+    let backgroundColor = '#222';
+    if (isActive) {
+      backgroundColor = 'darkgreen';
+    } else if (canDrop) {
+      backgroundColor = 'darkkhaki';
+    }
+
     return connectDropTarget(
-      <div className="TaskList">
+      <div className="TaskList" style={{ backgroundColor }}>
+
         {tasks.filter((item) => (item.cardId === cardId)).map(task =>
           <Task key={task.taskId} text={task.text} />
         )}

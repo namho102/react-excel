@@ -76,6 +76,9 @@ button:active {
   margin: 10px;
 }
 
+.TaskList {
+  height: 200px;
+}
 .Task {
   background-color: #D8EDE8;
   margin-top: 10px;

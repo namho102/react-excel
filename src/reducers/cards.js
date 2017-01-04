@@ -17,6 +17,7 @@ const cards = (state = [], action) => {
           ...state,
           card(undefined, action)
         ]
+
       default:
         return state
     }

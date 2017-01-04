@@ -29,7 +29,6 @@ let AddTask = ({ dispatch, ownProps }) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    dispatch: state.dispatch,
     ownProps: ownProps
   }
 }

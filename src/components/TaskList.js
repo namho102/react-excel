@@ -3,16 +3,18 @@ import Task from './Task'
 import { connect } from 'react-redux'
 
 import { DropTarget } from 'react-dnd';
+import { moveTask } from '../actions'
 
-const squareTarget = {
-  // canDrop(props) {
-  //   console.log('can drop');
-  //   console.log(props);
-  // },
-
+const cardTarget = {
   drop(props, monitor) {
     console.log('drop');
+
     console.log(props);
+    console.log(monitor.getItem());
+
+    return {
+      cardId: props.cardId
+    }
   }
 };
 
@@ -24,45 +26,33 @@ function collect(connect, monitor) {
   };
 }
 
-// const TaskList = ({tasks, ownProps}) => {
-//   const thisCardId = ownProps.cardId
-//
-//   const { connectDropTarget, canDrop, isOver } = ownProps;
-//
-//   return connectDropTarget(
-//     <div className="TaskList">
-//       {tasks.filter((item) => (item.cardId === thisCardId)).map(task =>
-//         <Task key={task.taskId} text={task.text} />
-//       )}
-//     </div>
-//   )
-// }
-
 class TaskList extends React.Component {
   render() {
     // console.log(this.props);
 
-    const { cardId, tasks, connectDropTarget, canDrop, isOver } = this.props;
+    const { cardId, tasks, connectDropTarget, canDrop, isOver, onDrop } = this.props;
 
     const isActive = isOver && canDrop;
 
-    let backgroundColor = '#222';
+    let backgroundColor = '#D7EA29';
     if (isActive) {
-      backgroundColor = 'darkgreen';
+      backgroundColor = '#9CEBE6';
     } else if (canDrop) {
-      backgroundColor = 'darkkhaki';
+      backgroundColor = '#F3F2F9';
     }
 
     return connectDropTarget(
       <div className="TaskList" style={{ backgroundColor }}>
 
         {tasks.filter((item) => (item.cardId === cardId)).map(task =>
-          <Task key={task.taskId} text={task.text} />
+          <Task key={task.taskId} text={task.text} taskId={task.taskId} onDrop={onDrop}/>
         )}
       </div>
     )
   }
 }
+
+
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -71,5 +61,12 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onDrop: (taskId, cardId) => {
+      dispatch(moveTask(taskId, cardId))
+    }
+  }
+}
 
-export default DropTarget('TASK', squareTarget, collect)(connect(mapStateToProps)(TaskList))
+export default DropTarget('TASK', cardTarget, collect)(connect(mapStateToProps, mapDispatchToProps)(TaskList))

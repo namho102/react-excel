@@ -18,3 +18,12 @@ export const addTask = (text, cardId) => {
     taskId: nextTaskId++
   }
 }
+
+
+export const moveTask = (taskId, cardId) => {
+  return {
+    type: 'MOVE_TASK',
+    cardId,
+    taskId
+  }
+}

@@ -65,7 +65,8 @@ button:active {
 
 .Card {
   background-color: #D7EA29;
-  height: 200px;
+  /*height: 200px;*/
+
   margin: 2.5%;
   min-width: 20%;
   padding: 10px;

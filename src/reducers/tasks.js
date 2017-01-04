@@ -1,4 +1,4 @@
-const card = (state = {}, action) => {
+const task = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_TASK':
       return {
@@ -16,8 +16,16 @@ const tasks = (state = [], action) => {
       case 'ADD_TASK':
         return [
           ...state,
-          card(undefined, action)
+          task(undefined, action)
         ]
+        
+      case 'MOVE_TASK':
+        return  state.map(item => {
+          if(item.taskId == action.taskId)
+            item.cardId = action.cardId
+          return item
+        })
+
       default:
         return state
     }

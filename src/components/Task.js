@@ -1,12 +1,10 @@
 import React from 'react'
 import { DragSource } from 'react-dnd';
-import { connect } from 'react-redux'
-
 
 const taskSource = {
   beginDrag(props) {
-    console.log('begin drop');
-    console.log(props);
+    // console.log('begin drop');
+    // console.log(props);
 
     return {
       taskId: props.taskId
@@ -33,7 +31,7 @@ function collect(connect, monitor) {
 
 class Task extends React.Component {
   render() {
-    const { text, connectDragSource, isDragging } = this.props
+    const { text, connectDragSource } = this.props
 
     return connectDragSource(
       <div className="Task">

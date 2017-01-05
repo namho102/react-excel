@@ -7,10 +7,9 @@ import { moveTask } from '../actions'
 
 const cardTarget = {
   drop(props, monitor) {
-    console.log('drop');
-
-    console.log(props);
-    console.log(monitor.getItem());
+    // console.log('drop');
+    // console.log(props);
+    // console.log(monitor.getItem());
 
     return {
       cardId: props.cardId

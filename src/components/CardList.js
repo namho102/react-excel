@@ -2,6 +2,8 @@ import React from 'react'
 import Card from './Card'
 import { connect } from 'react-redux'
 
+import AddCard from './AddCard'
+
 const CardList = ({cards}) => {
 
   return (
@@ -9,6 +11,10 @@ const CardList = ({cards}) => {
       {cards.map(card =>
         <Card key={card.cardId} name={card.name} cardId={card.cardId}/>
       )}
+
+      <AddCard />
+
+
     </div>
   )
 }

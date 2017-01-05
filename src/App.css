@@ -22,8 +22,6 @@
   justify-content: center;
 }
 
-
-
 .App-intro {
   font-size: large;
 }
@@ -32,13 +30,16 @@
   /*background-color: #C9C23E;*/
   height: 100vh;
   padding-top: 20px;
-  text-align: center;
+  /*text-align: center;*/
 }
+
+
 
 input {
   font-family: 'Nunito Sans', sans-serif;
   height: 25px;
   padding-left: 10px;
+  width: 180px;
 }
 
 
@@ -67,8 +68,8 @@ button:active {
   background-color: #D7EA29;
   /*height: 200px;*/
 
-  margin: 2.5%;
-  min-width: 20%;
+  margin: 2%;
+  /*min-width: 20%;*/
   padding: 10px;
 }
 
@@ -79,11 +80,18 @@ button:active {
 
 .TaskList {
   height: 200px;
+  margin-top: 10px;
+  overflow-y: auto;
 }
 .Task {
   background-color: #D8EDE8;
   margin-top: 10px;
   padding: 5px;
+}
+
+.Card-button {
+  height: auto;
+  min-width: auto;
 }
 
 @keyframes App-logo-spin {

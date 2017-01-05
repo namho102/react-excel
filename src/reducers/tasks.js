@@ -18,10 +18,10 @@ const tasks = (state = [], action) => {
           ...state,
           task(undefined, action)
         ]
-        
+
       case 'MOVE_TASK':
         return  state.map(item => {
-          if(item.taskId == action.taskId)
+          if(item.taskId === action.taskId)
             item.cardId = action.cardId
           return item
         })

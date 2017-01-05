@@ -6,7 +6,7 @@ let AddCard = ({ dispatch }) => {
   let input
 
   return (
-    <div className="Card-button">
+    <div className="Card Card-button">
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {

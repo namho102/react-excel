@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import AddCard from './components/AddCard'
+// import AddCard from './components/AddCard'
 import CardList from './components/CardList'
 
 class App extends Component {
@@ -14,8 +14,11 @@ class App extends Component {
           <h2>React Trello-like app</h2>
         </div>
         <div className="App-body">
-          <AddCard />
-          <CardList />
+            <div>
+              <CardList />
+      
+            </div>
+
         </div>
       </div>
     );

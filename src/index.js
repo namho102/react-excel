@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import App from './App';
 import './index.css';
 
-import trello from './reducers'
+import createLogger from 'redux-logger';
 
-let store = createStore(trello)
+import reducer from './reducers'
+
+const logger = createLogger()
+
+let store = createStore(reducer, applyMiddleware(logger))
 
 const render = () => ReactDOM.render(
   <Provider store={store}>
@@ -16,6 +20,8 @@ const render = () => ReactDOM.render(
 
   document.getElementById('root')
 )
+
+
 
 render()
 store.subscribe(render)
